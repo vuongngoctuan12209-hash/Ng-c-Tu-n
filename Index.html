@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>𝐀𝐢𝐦𝐥𝐨𝐜𝐤 𝐌𝐨𝐂𝐡𝐢👑</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:linear-gradient(-45deg,
+#ff0000,#ff9900,#ffee00,#00ff00,#00ffff,#0066ff,#9900ff);
+background-size:400% 400%;
+animation:bg 10s ease infinite;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.menu{
+width:340px;
+background:rgba(0,0,0,.65);
+backdrop-filter:blur(15px);
+border-radius:18px;
+padding:20px;
+color:#fff;
+box-shadow:0 0 25px #fff;
+}
+
+h2{
+text-align:center;
+margin-bottom:20px;
+color:#fff;
+text-shadow:0 0 12px cyan;
+}
+
+.item{
+margin:18px 0;
+}
+
+label{
+display:flex;
+justify-content:space-between;
+font-size:16px;
+margin-bottom:8px;
+}
+
+input[type=range]{
+width:100%;
+accent-color:#00ffff;
+}
+
+button{
+width:100%;
+padding:12px;
+border:none;
+border-radius:12px;
+background:linear-gradient(90deg,#00ffff,#ff00ff);
+color:#fff;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+margin-top:15px;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px cyan;
+}
+</style>
+</head>
+
+<body>
+
+<div class="menu">
+<h2>𝐀𝐢𝐦𝐥𝐨𝐜𝐤 𝐌𝐨𝐂𝐡𝐢👑</h2>
+
+<div class="item">
+<label>Aimlock <span id="aimv">50</span></label>
+<input type="range" min="0" max="100" value="50"
+oninput="aimv.innerText=this.value">
+</div>
+
+<div class="item">
+<label>Bám đầu <span id="bamv">50</span></label>
+<input type="range" min="0" max="100" value="50"
+oninput="bamv.innerText=this.value">
+</div>
+
+<div class="item">
+<label>Ghim đầu <span id="ghimv">50</span></label>
+<input type="range" min="0" max="100" value="50"
+oninput="ghimv.innerText=this.value">
+</div>
+
+<div class="item">
+<label>DPI <span id="dpiv">200</span></label>
+<input type="range" min="1" max="400" value="200"
+oninput="dpiv.innerText=this.value">
+</div>
+
+<button onclick="alert('Zalo:0812434027!')">
+LƯU CÀI ĐẶT
+</button>
+
+</div>
+
+</body>
+</html>
