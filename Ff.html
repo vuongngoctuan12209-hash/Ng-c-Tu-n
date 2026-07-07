@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dodat - FF OB54 Sensitivity Demo</title>
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#111;
+color:#fff;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+.box{
+width:350px;
+background:#1b1b1b;
+border:2px solid #ff2a2a;
+border-radius:15px;
+padding:20px;
+box-shadow:0 0 20px red;
+}
+h2{
+text-align:center;
+color:#ff4444;
+}
+select,input,button{
+width:100%;
+padding:12px;
+margin-top:10px;
+border:none;
+border-radius:8px;
+font-size:16px;
+}
+button{
+background:#ff3030;
+color:white;
+cursor:pointer;
+}
+button:hover{
+background:#ff5555;
+}
+pre{
+background:#000;
+padding:10px;
+border-radius:10px;
+margin-top:15px;
+white-space:pre-wrap;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+<h2>Dodat Demo</h2>
+
+<select id="os">
+<option>iOS</option>
+<option>Android</option>
+</select>
+
+<input id="device" placeholder="Nhập tên dòng máy">
+
+<button onclick="gen()">Tạo độ nhạy OB54</button>
+
+<pre id="out">Chưa có dữ liệu...</pre>
+
+</div>
+
+<script>
+
+function hash(str){
+let h=0;
+for(let i=0;i<str.length;i++){
+h=(h<<5)-h+str.charCodeAt(i);
+h|=0;
+}
+return Math.abs(h);
+}
+
+function value(seed,offset){
+return 150+((seed+offset)%51);
+}
+
+function gen(){
+
+let os=document.getElementById("os").value;
+let dev=document.getElementById("device").value.trim();
+
+if(dev==""){
+alert("Nhập tên thiết bị.");
+return;
+}
+
+let seed=hash(os+dev);
+
+let txt=
+"Thiết bị : "+dev+"\n"+
+"Hệ điều hành : "+os+"\n\n"+
+"General : "+value(seed,1)+"\n"+
+"Red Dot : "+value(seed,8)+"\n"+
+"2X Scope : "+value(seed,15)+"\n"+
+"4X Scope : "+value(seed,22)+"\n"+
+"Sniper : "+value(seed,29)+"\n"+
+"Free Look : "+value(seed,36)+"\n\n"+
+"(hiển thị - chúc bạn chơi game vv.)";
+
+document.getElementById("out").textContent=txt;
+
+}
+
+</script>
+
+</body>
+</html>
